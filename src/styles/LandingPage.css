@@ -1,5 +1,4 @@
 .landing-page {
-    width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -127,7 +126,6 @@
     height: 100%;
     object-fit: contain;
 }
-
 
 .hero-title {
     font-size: 3.5rem;
@@ -311,7 +309,8 @@
 
     .svg-group-right {
         right: 5%;
-        gap: 1.5rem;
+        width: 350px;
+        height: 400px;
     }
 
     .hero-section {
@@ -319,23 +318,37 @@
         padding-left: 0;
         margin-right: 0;
     }
+
+    .hero-title {
+        font-size: 3rem;
+    }
 }
 
 @media (max-width: 768px) {
     .landing-page {
-        padding: 6rem 0 0 0;
+        padding: 5rem 0 0 0;
+    }
+
+    .landing-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero-section {
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
     }
 
     .hero-subtitle {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
     }
 
     .hero-description {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .cta-button {
@@ -345,6 +358,7 @@
 
     .features-section {
         gap: 1.5rem;
+        margin-top: 2rem;
     }
 
     .feature-card {
@@ -352,22 +366,84 @@
     }
 
     .footer-container {
-        padding: 1rem;
-    }
-
-    .svg-decoration {
-        width: 100px;
-        height: 100px;
-        padding: 0.75rem;
+        padding: 1.25rem 1rem;
     }
 
     .svg-group-right {
-        right: 2%;
-        gap: 1rem;
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-page {
+        padding: 4.5rem 0 0 0;
+    }
+
+    .landing-content {
+        padding: 1rem 0.75rem;
     }
 
     .hero-section {
-        text-align: center;
-        padding-left: 0;
+        padding: 0 0.5rem;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.875rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 0.75rem 1.5rem;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .features-section {
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+    }
+
+    .feature-title {
+        font-size: 1.1rem;
+    }
+
+    .feature-description {
+        font-size: 0.9rem;
+    }
+
+    .footer-container {
+        padding: 1rem 0.75rem;
+    }
+
+    .footer-logo-text {
+        font-size: 1.1rem;
+    }
+
+    .footer-icon {
+        width: 1.1rem;
+        height: 1.1rem;
+    }
+
+    .footer-copyright {
+        font-size: 0.8rem;
     }
 }

@@ -1,5 +1,5 @@
 .creator-card {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: #1d1d1d;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 0.75rem;
     padding: 0.75rem;
@@ -164,4 +164,89 @@
 .pin-peer-button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .creator-card {
+        padding: 1rem;
+    }
+
+    .creator-avatar img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .creator-name {
+        font-size: 1rem;
+    }
+
+    .creator-project {
+        font-size: 0.85rem;
+    }
+
+    .creator-description {
+        font-size: 0.8rem;
+        -webkit-line-clamp: 3;
+    }
+
+    .donation-label {
+        font-size: 0.8rem;
+    }
+
+    .amount-button {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .pin-peer-button {
+        padding: 0.625rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .creator-card {
+        padding: 0.875rem;
+        border-radius: 0.625rem;
+    }
+
+    .pinned-badge {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.4rem;
+    }
+
+    .creator-avatar img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .creator-name {
+        font-size: 0.95rem;
+    }
+
+    .creator-project {
+        font-size: 0.8rem;
+    }
+
+    .creator-description {
+        font-size: 0.75rem;
+    }
+
+    .donation-label {
+        font-size: 0.75rem;
+    }
+
+    .donation-amounts {
+        gap: 0.35rem;
+    }
+
+    .amount-button {
+        padding: 0.45rem;
+        font-size: 0.75rem;
+    }
+
+    .pin-peer-button {
+        padding: 0.55rem;
+        font-size: 0.8rem;
+    }
 }
