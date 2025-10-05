@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { isConnected, openSTXTransfer } from "@stacks/connect";
 import { STACKS_TESTNET } from "@stacks/network";
+import { openSTXTransfer, isConnected } from "@stacks/connect";
 import { Header } from "./components/Header";
 import { CreatorsGrid } from "./components/CreatorsGrid";
 import { LandingPage } from "./components/LandingPage";

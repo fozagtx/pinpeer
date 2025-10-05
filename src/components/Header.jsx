@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  showConnect as connect,
-  disconnect,
-  isConnected,
-} from "@stacks/connect";
+import { connect, disconnect, isConnected } from "@stacks/connect";
 import "../styles/Header.css";
 
 export function Header({
@@ -20,7 +16,6 @@ export function Header({
     const getUserData = async () => {
       if (connected && isConnected()) {
         try {
-          // Get user data from localStorage (set by Stacks Connect)
           const userData = localStorage.getItem("blockstack-session");
           if (userData) {
             const parsedData = JSON.parse(userData);
@@ -63,17 +58,27 @@ export function Header({
 
   const handleConnectWallet = async () => {
     try {
+      console.log("Attempting to connect wallet...");
       await connect({
         appDetails: {
-          name: "pinpeer",
-          icon: window.location.origin + "/nemo-g.png",
+          name: "PinPeer",
+          icon: window.location.origin + "/vite.svg",
         },
         onFinish: () => {
-          onConnectionChange(true);
+          console.log("Wallet connected successfully");
+          setTimeout(() => {
+            onConnectionChange(true);
+          }, 100);
+        },
+        onCancel: () => {
+          console.log("User cancelled wallet connection");
         },
       });
     } catch (error) {
       console.error("Connection failed:", error);
+      alert(
+        "Failed to connect wallet. Please make sure you have a Stacks wallet extension installed (Hiro Wallet or Leather).",
+      );
     }
   };
 
