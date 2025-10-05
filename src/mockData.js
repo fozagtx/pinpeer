@@ -59,4 +59,24 @@ export const creatorsData = [
     donations: [5, 10, 25, 50],
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya",
   },
+  {
+    id: 7,
+    name: "Carlos Rodriguez",
+    project: "Cross-Chain Bridge",
+    description:
+      "Built secure bridge infrastructure for seamless asset transfers between Stacks and other blockchains",
+    stacksAddress: "STSSJJAT3JRQ97A1DSHX3P2BGPFJHWZWNCVY6CY1",
+    donations: [5, 10, 25, 50],
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos",
+  },
+  {
+    id: 8,
+    name: "Yuki Tanaka",
+    project: "Wallet Analytics Tool",
+    description:
+      "Created portfolio tracker with real-time insights and tax reporting for Stacks wallets",
+    stacksAddress: "STSSJJAT3JRQ97A1DSHX3P2BGPFJHWZWNCVY6CY1",
+    donations: [5, 10, 25, 50],
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Yuki",
+  },
 ];

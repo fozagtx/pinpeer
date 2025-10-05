@@ -48,6 +48,59 @@
     gap: 0.75rem;
 }
 
+.header-tabs {
+    display: flex;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+}
+
+.tab-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.tab-button:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tab-button.active {
+    background-color: #facc15;
+    color: black;
+}
+
+.balance-display {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(250, 204, 21, 0.1);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+}
+
+.balance-label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+
+.balance-amount {
+    font-size: 0.875rem;
+    color: #facc15;
+    font-weight: 600;
+    font-family: monospace;
+}
+
 .connect-wallet-button,
 .disconnect-wallet-button {
     font-size: 0.875rem;
@@ -66,4 +119,18 @@
 .connect-wallet-button:hover,
 .disconnect-wallet-button:hover {
     background-color: #eab308;
+}
+
+@media (max-width: 768px) {
+    .balance-display {
+        padding: 0.375rem 0.75rem;
+    }
+
+    .balance-label {
+        display: none;
+    }
+
+    .balance-amount {
+        font-size: 0.75rem;
+    }
 }
