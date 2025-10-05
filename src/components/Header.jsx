@@ -77,7 +77,7 @@ export function Header({
     } catch (error) {
       console.error("Connection failed:", error);
       alert(
-        "Failed to connect wallet. Please make sure you have a Stacks wallet extension installed (Hiro Wallet or Leather).",
+        "🔌 Oops! We couldn't connect to your wallet.\n\n💡 Make sure you have a Stacks wallet installed (Hiro Wallet or Leather).\n\n✨ Once installed, give it another try!",
       );
     }
   };
@@ -112,6 +112,12 @@ export function Header({
                 onClick={() => onViewChange("peers")}
               >
                 My Peers
+              </button>
+              <button
+                className={`tab-button ${currentView === "history" ? "active" : ""}`}
+                onClick={() => onViewChange("history")}
+              >
+                History
               </button>
             </div>
           )}

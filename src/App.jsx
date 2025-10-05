@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import { isConnected, openSTXTransfer } from "@stacks/connect";
 import { STACKS_TESTNET } from "@stacks/network";
-import { openSTXTransfer, isConnected } from "@stacks/connect";
 import { Header } from "./components/Header";
 import { CreatorsGrid } from "./components/CreatorsGrid";
 import { LandingPage } from "./components/LandingPage";
 import { SuccessModal } from "./components/SuccessModal";
+import { TransactionHistory } from "./components/TransactionHistory";
 import { creatorsData } from "./mockData";
 import "./styles/App.css";
 
@@ -16,6 +17,10 @@ function App() {
   const [currentView, setCurrentView] = useState("creators");
   const [pinnedPeers, setPinnedPeers] = useState(() => {
     const saved = localStorage.getItem("pinnedPeers");
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [transactionHistory, setTransactionHistory] = useState(() => {
+    const saved = localStorage.getItem("transactionHistory");
     return saved ? JSON.parse(saved) : [];
   });
 
@@ -38,6 +43,13 @@ function App() {
   useEffect(() => {
     localStorage.setItem("pinnedPeers", JSON.stringify(pinnedPeers));
   }, [pinnedPeers]);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "transactionHistory",
+      JSON.stringify(transactionHistory),
+    );
+  }, [transactionHistory]);
 
   const handleConnectionChange = (connectionStatus) => {
     setConnected(connectionStatus);
@@ -68,12 +80,17 @@ function App() {
         network: STACKS_TESTNET,
         onFinish: (data) => {
           console.log("Transaction submitted:", data.txId);
-          setTransactionData({
+          const txData = {
             txId: data.txId,
             amount: amount,
             creatorName: creatorName,
             recipient: recipientAddress,
-          });
+            timestamp: new Date().toISOString(),
+          };
+          setTransactionData(txData);
+
+          // Add to transaction history
+          setTransactionHistory((prev) => [txData, ...prev]);
 
           // Add to pinned peers if not already pinned
           const creator = creatorsData.find((c) => c.id === creatorId);
@@ -93,7 +110,9 @@ function App() {
       });
     } catch (error) {
       console.error("Error sending STX:", error);
-      alert("Failed to process donation. Please try again.");
+      alert(
+        "😅 Oops! Something went wrong with your donation.\n\n🔄 No worries, your funds are safe! Please try again.\n\n💬 If this keeps happening, make sure your wallet is unlocked.",
+      );
     }
   };
 
@@ -121,7 +140,7 @@ function App() {
           onAmountSelect={handleAmountSelect}
           pinnedPeers={pinnedPeers}
         />
-      ) : (
+      ) : currentView === "peers" ? (
         <CreatorsGrid
           creators={pinnedPeers}
           onDonate={handleDonate}
@@ -131,6 +150,8 @@ function App() {
           pinnedPeers={pinnedPeers}
           isPeersView={true}
         />
+      ) : (
+        <TransactionHistory transactions={transactionHistory} />
       )}
 
       <SuccessModal
