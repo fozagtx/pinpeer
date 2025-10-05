@@ -65,7 +65,7 @@ PinPeer is built with a modern, component-based architecture:
 
 1.  **Clone the Repository**:
     ```bash
-    git clone https://github.com/your-username/pinpeer.git
+    git clone https://github.com/fozagtx/pinpeer.git
     cd pinpeer
     ```
 
