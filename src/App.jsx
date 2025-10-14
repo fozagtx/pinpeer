@@ -6,6 +6,7 @@ import { CreatorsGrid } from "./components/CreatorsGrid";
 import { LandingPage } from "./components/LandingPage";
 import { SuccessModal } from "./components/SuccessModal";
 import { TransactionHistory } from "./components/TransactionHistory";
+import FeaturedCarousel from "./components/FeaturedCarousel";
 import { creatorsData } from "./mockData";
 import "./styles/App.css";
 
@@ -132,14 +133,17 @@ function App() {
           }}
         />
       ) : currentView === "creators" ? (
-        <CreatorsGrid
-          creators={creatorsData}
-          onDonate={handleDonate}
+        <>
+          <FeaturedCarousel creators={creatorsData} />
+          <CreatorsGrid
+            creators={creatorsData}
+            onDonate={handleDonate}
           connected={connected}
           selectedCard={selectedCard}
           onAmountSelect={handleAmountSelect}
           pinnedPeers={pinnedPeers}
         />
+        </>
       ) : currentView === "peers" ? (
         <CreatorsGrid
           creators={pinnedPeers}

@@ -16,22 +16,20 @@ export function CreatorCard({
 
   return (
     <div className={`creator-card ${isPinned ? "pinned" : ""}`}>
-      {isPinned && (
-        <div className="pinned-badge">
-          <span className="badge-icon">⭐</span>
-          <span className="badge-text">Pinned</span>
+      <div className="card-header">
+        <img src={creator.avatar} alt={creator.name} className="avatar" />
+        <div className="creator-info">
+          <h3 className="creator-name">{creator.name}</h3>
+          <p className="creator-project">{creator.project}</p>
         </div>
-      )}
-      <div className="creator-avatar">
-        <img src={creator.avatar} alt={creator.name} />
+        {isPinned && (
+          <div className="pinned-badge">
+            <span>⭐</span> Pinned
+          </div>
+        )}
       </div>
-      <div className="creator-info">
-        <h3 className="creator-name">{creator.name}</h3>
-        <h4 className="creator-project">{creator.project}</h4>
-        <p className="creator-description">{creator.description}</p>
-      </div>
+      <p className="creator-description">{creator.description}</p>
       <div className="donation-section">
-        <p className="donation-label">Choose amount (STX)</p>
         <div className="donation-amounts">
           {creator.donations.map((amount) => (
             <button
@@ -48,7 +46,7 @@ export function CreatorCard({
           onClick={handlePinPeer}
           disabled={!selectedAmount || !connected}
         >
-          {!connected ? "Connect Wallet First" : "Pin This Peer"}
+          {!connected ? "Connect Wallet" : `Pin for ${selectedAmount || ''} STX`}
         </button>
       </div>
     </div>
