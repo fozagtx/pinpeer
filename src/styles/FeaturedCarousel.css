@@ -1,0 +1,69 @@
+/* FeaturedCarousel.css */
+.featured-carousel {
+  margin-bottom: 40px;
+}
+
+.carousel-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc #f1f1f1;
+}
+
+.carousel-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+.carousel-card {
+  flex: 0 0 180px;
+  margin-right: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.carousel-card:hover {
+  transform: translateY(-5px);
+}
+
+.carousel-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.carousel-name {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.carousel-project {
+  font-size: 0.9rem;
+  color: #666;
+}

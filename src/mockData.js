@@ -8,6 +8,7 @@ export const creatorsData = [
     stacksAddress: "STSSJJAT3JRQ97A1DSHX3P2BGPFJHWZWNCVY6CY1",
     donations: [5, 10, 25, 50],
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    totalDonations: 1200,
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ export const creatorsData = [
     stacksAddress: "STSSJJAT3JRQ97A1DSHX3P2BGPFJHWZWNCVY6CY1",
     donations: [5, 10, 25, 50],
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    totalDonations: 2500,
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ export const creatorsData = [
     stacksAddress: "STSSJJAT3JRQ97A1DSHX3P2BGPFJHWZWNCVY6CY1",
     donations: [5, 10, 25, 50],
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Jordan",
+    totalDonations: 800,
   },
   {
     id: 4,
@@ -38,6 +41,7 @@ export const creatorsData = [
     stacksAddress: "STSSJJAT3JRQ97A1DSHX3P2BGPFJHWZWNCVY6CY1",
     donations: [5, 10, 25, 50],
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Emma",
+    totalDonations: 3200,
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ export const creatorsData = [
     stacksAddress: "STSSJJAT3JRQ97A1DSHX3P2BGPFJHWZWNCVY6CY1",
     donations: [5, 10, 25, 50],
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
+    totalDonations: 500,
   },
   {
     id: 6,
@@ -58,6 +63,7 @@ export const creatorsData = [
     stacksAddress: "STSSJJAT3JRQ97A1DSHX3P2BGPFJHWZWNCVY6CY1",
     donations: [5, 10, 25, 50],
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya",
+    totalDonations: 1800,
   },
   {
     id: 7,
@@ -68,6 +74,7 @@ export const creatorsData = [
     stacksAddress: "STSSJJAT3JRQ97A1DSHX3P2BGPFJHWZWNCVY6CY1",
     donations: [5, 10, 25, 50],
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos",
+    totalDonations: 4000,
   },
   {
     id: 8,
@@ -78,5 +85,6 @@ export const creatorsData = [
     stacksAddress: "STSSJJAT3JRQ97A1DSHX3P2BGPFJHWZWNCVY6CY1",
     donations: [5, 10, 25, 50],
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Yuki",
+    totalDonations: 100,
   },
 ];
