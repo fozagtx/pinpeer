@@ -1,13 +1,15 @@
 /* FeaturedCarousel.css */
 .featured-carousel {
   margin-bottom: 40px;
+  padding: 0 20px;
 }
 
 .carousel-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 20px;
-  color: #333;
+  color: #fff;
+  font-weight: 600;
 }
 
 .carousel-container {
@@ -15,7 +17,7 @@
   overflow-x: auto;
   padding-bottom: 20px;
   scrollbar-width: thin;
-  scrollbar-color: #ccc #f1f1f1;
+  scrollbar-color: #4a4a4a #1d1d1d;
 }
 
 .carousel-container::-webkit-scrollbar {
@@ -23,47 +25,51 @@
 }
 
 .carousel-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #1d1d1d;
 }
 
 .carousel-container::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background-color: #4a4a4a;
   border-radius: 4px;
 }
 
 .carousel-container::-webkit-scrollbar-thumb:hover {
-  background: #aaa;
+  background: #6a6a6a;
 }
 
 .carousel-card {
-  flex: 0 0 180px;
+  flex: 0 0 150px;
   margin-right: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 15px;
   text-align: center;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  background-color: #1d1d1d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .carousel-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .carousel-avatar {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   margin-bottom: 15px;
+  border: 2px solid #facc15;
 }
 
 .carousel-name {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 5px;
+  color: #fff;
+  font-weight: 500;
 }
 
 .carousel-project {
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 0.8rem;
+  color: #a0a0a0;
 }
