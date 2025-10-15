@@ -5,7 +5,7 @@
 }
 
 html {
-    font-size: 16px;
+    font-size: 14px;
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -54,12 +54,12 @@ a:hover {
 
 @media (max-width: 768px) {
     html {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 480px) {
     html {
-        font-size: 16px;
+        font-size: 13px;
     }
 }
