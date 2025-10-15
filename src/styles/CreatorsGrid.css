@@ -1,92 +1,147 @@
+/* CreatorsGrid.css - Modern Glass UI Layout */
 .creators-container {
-    padding: 8rem 2rem 2rem 2rem;
+    padding: 2rem 2rem 4rem 2rem;
     margin: 0;
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .creators-header {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
+    position: relative;
 }
 
 .creators-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: white;
-    margin: 0 0 0.5rem 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+    position: relative;
+}
+
+.creators-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    border-radius: 1px;
 }
 
 .creators-subtitle {
     font-size: 1.125rem;
     color: rgba(255, 255, 255, 0.7);
     margin: 0;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
 }
 
 .creators-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
     width: 100%;
-    justify-content: flex-start;
-}
-
-.creators-grid > * {
-    flex: 0 1 calc(25% - 1.125rem);
-    min-width: 250px;
 }
 
 .empty-peers {
     grid-column: 1 / -1;
     text-align: center;
     padding: 4rem 2rem;
-    color: rgba(255, 255, 255, 0.6);
+    background: linear-gradient(
+        135deg,
+        rgba(250, 204, 21, 0.05) 0%,
+        rgba(15, 15, 15, 0.3) 50%,
+        rgba(10, 10, 10, 0.8) 100%
+    );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.empty-peers::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(250, 204, 21, 0.03) 50%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.6;
 }
 
 .empty-peers p {
     font-size: 1.25rem;
     margin: 0 0 0.5rem 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
 }
 
 .empty-peers-subtitle {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
 }
 
+/* Responsive Design */
 @media (max-width: 1200px) {
-    .creators-grid > * {
-        flex: 0 1 calc(33.333% - 1rem);
+    .creators-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
     }
 }
 
 @media (max-width: 900px) {
-    .creators-grid > * {
-        flex: 0 1 calc(50% - 0.75rem);
+    .creators-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.25rem;
     }
 }
 
 @media (max-width: 768px) {
     .creators-container {
-        padding: 6rem 1rem 2rem 1rem;
+        padding: 1.5rem 1rem 3rem 1rem;
     }
 
-    .creators-title {
-        font-size: 2rem;
-    }
-
-    .creators-subtitle {
-        font-size: 1rem;
+    .creators-header {
+        margin-bottom: 2rem;
     }
 
     .creators-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 1rem;
-    }
-
-    .creators-grid > * {
-        flex: 0 1 calc(50% - 0.5rem);
-        min-width: 0;
     }
 
     .empty-peers {
         padding: 3rem 1.5rem;
+    }
+
+    .empty-icon {
+        font-size: 2.5rem;
     }
 
     .empty-peers p {
@@ -98,33 +153,32 @@
     }
 }
 
+@media (max-width: 600px) {
+    .creators-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
 @media (max-width: 480px) {
     .creators-container {
-        padding: 5rem 0.75rem 1.5rem 0.75rem;
+        padding: 1rem 0.75rem 2rem 0.75rem;
     }
 
     .creators-header {
-        margin-bottom: 1rem;
-    }
-
-    .creators-title {
-        font-size: 1.5rem;
-    }
-
-    .creators-subtitle {
-        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
     }
 
     .creators-grid {
         gap: 0.75rem;
     }
 
-    .creators-grid > * {
-        flex: 0 1 100%;
-    }
-
     .empty-peers {
         padding: 2rem 1rem;
+    }
+
+    .empty-icon {
+        font-size: 2rem;
     }
 
     .empty-peers p {

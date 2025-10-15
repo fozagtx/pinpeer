@@ -5,15 +5,20 @@ import { Header } from "./components/Header";
 import { CreatorsGrid } from "./components/CreatorsGrid";
 import { LandingPage } from "./components/LandingPage";
 import { SuccessModal } from "./components/SuccessModal";
+import { ShareModal } from "./components/ShareModal";
+import { WelcomeNotification } from "./components/WelcomeNotification";
 import { TransactionHistory } from "./components/TransactionHistory";
 import FeaturedCarousel from "./components/FeaturedCarousel";
 import { creatorsData } from "./mockData";
+import { parseReferralParams, trackReferral, showReferralNotification } from "./utils/referralSystem";
 import "./styles/App.css";
 
 function App() {
   const [connected, setConnected] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
   const [transactionData, setTransactionData] = useState(null);
+  const [shareData, setShareData] = useState(null);
   const [selectedCard, setSelectedCard] = useState(null);
   const [currentView, setCurrentView] = useState("creators");
   const [pinnedPeers, setPinnedPeers] = useState(() => {
@@ -24,9 +29,23 @@ function App() {
     const saved = localStorage.getItem("transactionHistory");
     return saved ? JSON.parse(saved) : [];
   });
+  const [referralData, setReferralData] = useState(null);
+  const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);
 
   useEffect(() => {
     setConnected(isConnected());
+
+    // Check for referral parameters on app load
+    const referralParams = parseReferralParams();
+    if (referralParams.referralCode) {
+      setReferralData(referralParams);
+      const notification = showReferralNotification(referralParams);
+      if (notification) {
+        setShowWelcomeNotification(true);
+        // Track the referral
+        trackReferral(referralParams);
+      }
+    }
   }, []);
 
   useEffect(() => {
@@ -67,6 +86,21 @@ function App() {
     setSelectedCard({ creatorId, amount });
   };
 
+  const handleSuccessModalClose = () => {
+    setShowSuccessModal(false);
+    // Show share modal after success modal closes
+    if (shareData) {
+      setTimeout(() => {
+        setShowShareModal(true);
+      }, 300);
+    }
+  };
+
+  const handleShareModalClose = () => {
+    setShowShareModal(false);
+    setShareData(null);
+  };
+
   const handleDonate = async (
     recipientAddress,
     amount,
@@ -101,6 +135,13 @@ function App() {
               { ...creator, pinnedAt: new Date().toISOString() },
             ]);
           }
+
+          // Set share data for viral sharing
+          setShareData({
+            transactionData: txData,
+            creatorName: creatorName,
+            amount: amount
+          });
 
           setShowSuccessModal(true);
           setSelectedCard(null);
@@ -160,8 +201,22 @@ function App() {
 
       <SuccessModal
         isOpen={showSuccessModal}
-        onClose={() => setShowSuccessModal(false)}
+        onClose={handleSuccessModalClose}
         transactionData={transactionData}
+      />
+
+      <ShareModal
+        isOpen={showShareModal}
+        onClose={handleShareModalClose}
+        transactionData={shareData?.transactionData}
+        creatorName={shareData?.creatorName}
+        amount={shareData?.amount}
+      />
+
+      <WelcomeNotification
+        isOpen={showWelcomeNotification}
+        onClose={() => setShowWelcomeNotification(false)}
+        referralData={referralData}
       />
     </div>
   );
